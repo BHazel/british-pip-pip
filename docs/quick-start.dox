@@ -1,0 +1,187 @@
+/**
+@page quick_start Quick Start
+
+@tableofcontents
+
+@section introduction Introduction
+
+Greetings!  You have chosen to add some good old British flair to your C or C++ code!  This guide will get you started with the installation and usage!  <i>Are you sitting comfortablely?  Then we'll begin!</i>
+
+@section header_file Header File
+
+We are going to create a very British sample programme about the weather and trains to demonstrate how to use British++, <i>Lovely Jubbly</i>!
+
+So, first things first, please create a new C++ file and add the British++ header:
+
+@code{.cpp}
+#include <bwhazel/britis.h>
+@endcode
+
+@warning The header file name is spelt correctly!  That's British humour for you!
+
+@section entry_and_return Entry Point and Return Value
+
+In standard C and C++, the `main()` function is the entry point.  However, that's not very British, <i>what what</i>!  In British++, you use `programme()` instead!
+
+@code{.cpp}
+int programme() {
+
+}
+@endcode
+
+@warning The spelling of `programme()` is correct!  We invented the langauge don't you know!
+
+As the programme will return an integer, we need to return 0 at the end, however, in British++ we use `cheerio`, because we've done some work and it's time to say goodbye!
+
+@code{.cpp}
+int programme() {
+    cheerio;
+}
+@endcode
+
+@warning Modern C++ does not require a `return 0;` statement, however, that would mean not properly saying goodbye, which is just rude!
+
+To make this code more British, and thus much more polite, we can replace the curly brackets with `please` and `thank_you`!
+
+@code{.cpp}
+int programme() please
+    cheerio;
+thank_you
+@endcode
+
+@warning If you are going to use as minimal British++ as possible then `please` and `thank_you` should be considered the absolute minimum.  If you don't say please and thank you then frankly... well, <i>nuff said</i>!
+
+Spiffing!  Right, now let's get the code to do something!  Please add the C++ streams header file and some input and output:
+
+@code{.cpp}
+#include <iostream>
+
+#include <bwhazel/britis.h>
+
+int programme() please
+    std::cout << "Greetings!  How are you finding the weather?" << std::endl;
+    std::cout << "[1] The Sun's out!  [2] It's raining!  [3] It's a bit nippy!" << std::endl;
+    int weather = 0;
+    std::cin >> weather;
+    
+    cheerio;
+thank_you
+@endcode
+
+@section conditional_blocks Conditional Blocks
+
+We now need to respond to the user input.  The classic way to do this in standard C and C++ is an `if`...`else if`...`else` block but in British++ it's a `perchance`...`otherwise perchance`...`failing_that` block, not forgetting the `thank_you` at the end!
+
+So, after the user input with `std::cin`, please add:
+
+@code{.cpp}
+perchance (weather == 1) please
+    std::cout << "Marvellous!  Have a lovely day!" << std::endl;
+otherwise perchance (weather == 2) please
+    std::cout << "A little rain hurts no-one!  Don't forget your brolly!" << std::endl;
+otherwise perchance (weather == 3) please
+    std::cout << "Wrap up warm and grab a cup of tea!" << std::endl;
+failing_that please
+    std::cout << "Oh dear!  What are you talking about?" << std::endl;
+thank_you
+@endcode
+
+But you should be feeling that this is rather unnatural?  <i>Here here!</i>  So we can replace the brackets and even the equality checks to be more natural, using `that`, `then` and `is` respectively!
+
+@code{.cpp}
+perchance that weather is 1 then please
+    std::cout << "Marvellous!  Have a lovely day!" << std::endl;
+otherwise perchance that weather is 2 then please
+    std::cout << "A little rain hurts no-one!  Don't forget your brolly!" << std::endl;
+otherwise perchance that weather is 3 then please
+    std::cout << "Wrap up warm and grab a cup of tea!" << std::endl;
+failing_that please
+    std::cout << "Oh dear!  What are you talking about?" << std::endl;
+thank_you
+@endcode
+
+Better?  <i>Rather!</i>  In the final case, where the user entered an unsupported value, we should just exit the programme: why should we continue if the user cannot follow simple instrutions?  In standard C and C++ we can use a `return` statement with a non-zero value but in British++ we use `sorry()`, passing in the error value!  We say sorry because even though the user has not followed instructions, we are breaking the proper programme flow and we feel bad so need to apologise.  So, please update the `failing_that` block to be:
+
+@code{.cpp}
+failing_that please
+    std::cout << "Oh dear!  What are you talking about?" << std::endl;
+    sorry(1);
+thank_you
+@endcode
+
+@section loops Loops
+
+And now we know the weather, let's go and catch the train!  For the purposes of this example we are in Wimbledon, south-west London, and are travelling to London Waterloo station.
+
+@note The area of Waterloo, and its station, is named after the Battle of Waterloo where the British defeated the French, as usual.  Therefore, it was only fitting that Eurostar trains to and from France should stop there, to gently rub it in!  They now start and end at St. Pancras, but that's another story!
+
+So, please add the following input and output after the weather code:
+
+@code{.cpp}
+std::cout << "Anyway, time to catch the train!  How many minutes are there until the next one?" << std::endl;
+int minutes = 0;
+std::cin >> minutes;
+@endcode
+
+To count down until the train arrives in standard C and C++ we use a `while` loop, but in British++ we use a `whilst` loop, also not forgetting the `please` and `thank_you`!
+
+@code{.cpp}
+whilst minutes > 0 then please
+    std::cout << "1:  London Waterloo    " << minutes << " min" << std::endl;
+    std::cout << "   ... 1 minute later ..." << std::endl;
+    --minutes;
+thank_you
+@endcode
+
+@section booleans Booleans
+
+Splendid!  But to add a little more realism, let's simulate the train approaching the station and add an approaching message in the last minute.  The Boolean `bool` type is `yay_or_nay` in British++ and the `true` and `false` values are `yes` and `no` respectively!  So, please update the `whilst` loop to be:
+
+@code{.cpp}
+whilst minutes > 0 then please
+    std::cout << "1:  London Waterloo    " << minutes << " min" << std::endl;
+    
+    yay_or_nay is_last_minute = minutes is 1;
+    perchance that is_last_minute is yes then please
+        std::cout << "TRAIN APPROACHING!" << std::endl;
+    thank_you
+
+    std::cout << "   ... 1 minute later ..." << std::endl;
+    --minutes;
+thank_you
+@endcode
+
+@section memory Memory Management
+
+Magnificent!  And finally, we need to add the train's whistle as it departs the station!  To do this we are going to allocate memory to store the string of the whistle.  In standard C and C++ we use `malloc()` and `free()` (prefixed with `std::` in C++) but in British++ we use `bagsy()` and `on_your_bike()` instead!  Also, null is not very British, so we use `naff` instead for null pointers!
+
+So, please add the the C standard library and strings headers to the top of the file and the following code after the `whilst` loop:
+
+@code{.cpp}
+#include <cstdlib>
+#include <cstring>
+#include <iostream>
+
+#include <bwhazel/britis.h>
+
+// ...
+
+char* whistle = naff;
+whistle = (char*)bagsy(12 * sizeof(char));
+std::strcpy(whistle, "Choo! Choo!");
+std::cout << whistle << std::endl;
+on_your_bike(whistle);
+@endcode
+
+@section crown The Crown
+
+And finally, as any proud British citizen would do, we need to end the programme with a patriotic messgae to the King!  In British++ we add `god_save_the_king`, so please add this just before `cheerio`:
+
+@code{.cpp}
+god_save_the_king;
+@endcode
+
+And so there we have it, your first properly British programme using British++!  <i>Jolly, jolly good!</i>  Please now go forth and explore the documentation further and add more British flair to your code!  Thank you very much and cheerio!
+
+<b>God Save the King!</b>
+*/
