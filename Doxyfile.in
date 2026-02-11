@@ -1,0 +1,56 @@
+PROJECT_NAME           = "@PROJECT_DISPLAY_NAME@"
+PROJECT_NUMBER         = "@PROJECT_VERSION@"
+PROJECT_BRIEF          = "@PROJECT_DESCRIPTION@"
+OUTPUT_DIRECTORY       = "@DOXYGEN_OUTPUT_DIR@"
+
+EXTRACT_ALL            = YES
+EXTRACT_PRIVATE        = NO
+EXTRACT_STATIC         = YES
+RECURSIVE              = YES
+
+INPUT                  = "@CMAKE_SOURCE_DIR@/include" \
+                         "@CMAKE_SOURCE_DIR@/src" \
+                         "@CMAKE_SOURCE_DIR@/docs" \
+                         "@CMAKE_SOURCE_DIR@/README.md"
+FILE_PATTERNS          = *.h *.hpp *.cpp *.md *.dox
+EXCLUDE_PATTERNS       = */build/* */.*
+USE_MDFILE_AS_MAINPAGE = ../README.md
+
+SOURCE_BROWSER         = YES
+INLINE_SOURCES         = NO
+STRIP_CODE_COMMENTS    = NO
+REFERENCED_BY_RELATION = YES
+REFERENCES_RELATION    = YES
+
+GENERATE_HTML          = YES
+HTML_OUTPUT            = html
+HTML_FILE_EXTENSION    = .html
+HTML_COLORSTYLE        = LIGHT
+HTML_TIMESTAMP         = YES
+HTML_DYNAMIC_SECTIONS  = YES
+
+GENERATE_LATEX         = NO
+
+GENERATE_MAN           = NO
+GENERATE_RTF           = NO
+GENERATE_XML           = NO
+
+ENABLE_PREPROCESSING   = YES
+MACRO_EXPANSION        = YES
+EXPAND_ONLY_PREDEF     = NO
+SEARCH_INCLUDES        = YES
+INCLUDE_PATH           = "@CMAKE_SOURCE_DIR@/include"
+PREDEFINED             = __cplusplus
+
+ALLEXTERNALS           = NO
+
+HAVE_DOT               = NO
+CLASS_DIAGRAMS         = YES
+UML_LOOK               = YES
+CALL_GRAPH             = NO
+CALLER_GRAPH           = NO
+
+QUIET                  = NO
+WARNINGS               = YES
+WARN_IF_UNDOCUMENTED   = YES
+WARN_IF_DOC_ERROR      = YES
